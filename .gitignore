@@ -14,7 +14,6 @@ __pycache__/
 # pytest cache
 .pytest_cache/
 # Project-specific/temporary artifacts we don't want in git
-outputs/*.png
 .ruff_cache/
 
 # macOS Finder
