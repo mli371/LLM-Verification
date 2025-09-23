@@ -1,0 +1,11 @@
+# A - Benford-friendly prompts: explicitly request numbers across many magnitudes
+Generate 50 numeric values drawn across many orders of magnitude; ensure values span from 0.01 up to 1000000. Output as a comma-separated list.
+Produce 40 monetary amounts where each amount is sampled from a log-uniform distribution between 0.1 and 100000 and show two decimal places.
+Create a CSV column named "amount" with 100 entries; each entry should be a number sampled so that leading digits across the column approximate a Benford distribution.
+Produce 60 measurements with values deliberately mixing tiny decimals and large integers (range 1e-2 to 1e6), one per line.
+Generate 30 invoice subtotals where each subtotal is randomly sampled on a logarithmic scale (mix of cents up to tens of thousands); list as lines.
+Output 45 donation amounts that are log-uniformly distributed between 1 and 100000, one per line.
+Create a receipt-like list with 20 prices, each chosen from a wide range of magnitudes so observed first digits follow Benford.
+Produce 35 bank transaction amounts sampled across multiple magnitudes; include negative and positive values.
+Generate a narrative paragraph that contains 30 numeric quantities across widely varying orders of magnitude embedded naturally in sentences.
+Create 50 product prices with intentionally varied magnitudes, from $0.05 to $50000, formatted with two decimals.

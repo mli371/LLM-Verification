@@ -1,0 +1,9 @@
+topic	worst_model	worst_chi2	n_texts	n_numbers
+csv_table	gpt-5-nano	3258.7129796388763	222	39368
+other	gpt-5-nano	1639.5557601683367	623	44981
+financial_receipt	gpt-5-nano	1001.947746426728	318	36418
+bank_statement	gpt-5-nano	508.04900811730056	89	9997
+narrative	gpt-5-nano	311.9260796480738	175	2923
+sensor_logs	gpt-3.5-turbo	226.9328421895616	46	5593
+reviews	gpt-5-nano	134.11429094230985	8	318
+medical	gpt-5-nano	17.584098710628886	1	205

@@ -1,0 +1,20 @@
+Generate 30 monetary amounts (USD) in a comma-separated list; vary scales from cents to tens of thousands, include decimals.
+Produce a CSV with 40 donation amounts in a column labeled "amount", vary sizes from $1 to $100000.
+Create a retail receipt with 12-18 line items, each line contains an item name and a price; vary prices over several orders of magnitude.
+Generate 50 fictional bank transaction amounts (positive and negative) across many scales, one per line.
+Output 60 invoice line amounts with quantities and unit prices; amounts should vary widely across orders of magnitude.
+Produce 30 lottery payout amounts with a wide range from small to large prizes, one per line.
+Generate a CSV table with 100 rows of "donation_amount" values spread across multiple magnitudes.
+Create a list of sensor readings (temperatures, pressures) with 80 numeric values spanning different ranges and units.
+Produce 40 fictional sales totals (daily totals) varying from 10 to 100000 across entries.
+Generate 30 scientific measurement values (some decimals) that cover many magnitudes.
+Create 50 numerical entries that simulate invoice subtotals and taxes, with varied magnitudes.
+Produce a narrative paragraph containing 20 numbers (ages, counts, distances, money) embedded in sentences.
+Generate 35 medal counts and prize amounts for fictional competitions; include a few large prize amounts.
+Output 45 rainfall measurements (mm) with a mix of small decimals and large integers.
+Produce 25 population counts for fictional towns (ranging from tens to millions).
+Create 40 entries of product prices (some cents, some big-ticket items) as a CSV column.
+Generate 20 account balances with different magnitudes, some negative and some very large.
+Produce 30 timestamps durations (in seconds) converted to numeric seconds with values across many scales.
+Generate 50 salary amounts across levels from interns to executives, in various currencies and magnitudes.
+Create 60 entries of random numeric metrics (mixed integers and decimals) spanning multiple orders of magnitude.
