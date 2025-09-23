@@ -1,52 +1,48 @@
-# LLM Verification — Professor-facing report (draft)
+# LLM Verification — Final Report
 
-This document is a concise, self-contained report intended for a short meeting or presentation with a supervisor/professor. It summarizes objectives, methods, key findings, and suggested next steps. You can use this as talking points or convert it to a PDF/slide.
+This report summarizes the objectives, methods, and results of the LLM Verification project. The goal is to assess whether outputs from different large language models (LLMs) and prompt types exhibit expected statistical regularities (Benford's Law for numeric outputs and Zipf's Law for textual outputs), and to highlight notable deviations that merit further investigation.
 
 ## 1. Executive summary
 
-- Goal: evaluate whether outputs from different LLMs (and prompt types) produce numeric/textual distributions consistent with expected empirical laws (Benford for numbers, Zipf for word frequencies). This helps detect generation artifacts, reporting anomalies, or systematic biases.
-- Status: data collection and consolidation completed into `sample_data/combined_outputs.jsonl`. Summary analyses (Benford chi-square per topic/model and Zipf slope/R²) produced and visualized.
+- Objective: quantify distributional properties of LLM outputs across topics and models to detect systematic generation artifacts or anomalies.
+- Scope: consolidated dataset `sample_data/combined_outputs.jsonl` covering multiple topics and models. Analyses include per-topic/model Benford counts, chi-square statistics, and Zipf slope/R² estimates.
+- Main outcome: a set of summary CSVs and plots (`outputs/topic_comparison.csv`, `outputs/summary/`) that identify topic/model pairs with elevated deviations from expected laws. These pairs are candidates for targeted follow-up experiments.
 
-## 2. Methods (short)
+## 2. Data and preprocessing
 
-- Collection: prompts organized by topic were used to generate multiple responses per model; all outputs recorded as JSONL with metadata (prompt id, model, timestamp).
-- Preprocessing: responses were parsed for numbers and plain text; numeric tokens were normalized and leading digits extracted for Benford counts.
-- Analysis: for each (topic, model) pair we computed counts of leading digits 1..9, expected Benford proportions, chi-square statistic and p-value (when available). For text we computed word-frequency distributions and estimated Zipf slope and R².
-- Visualization: heatmaps of chi-square by topic/model and composite Benford plots per topic are available in `outputs/summary/`.
+- Collection: responses were generated from curated prompts grouped by topic and recorded as JSONL with metadata (prompt id, model, timestamp).
+- Parsing: responses were tokenized and scanned for numeric strings and textual content. Numeric tokens were normalized (strip punctuation, standardize sign/format) before extracting leading digits for Benford analysis. Textual data were lowercased and tokenized for Zipf analysis.
 
-## 3. Key results (one-paragraph each)
+## 3. Analysis methods
 
-- Benford checks: most human-like outputs (long numeric series or financial-like prompts) show reasonable agreement with Benford expectations; some model/topic pairs show elevated chi-square values indicating deviation. See `outputs/topic_comparison.csv` for per-pair statistics and `outputs/summary/chi2_heatmap.png` for a quick overview.
-- Zipf checks: textual outputs generally follow a heavy-tailed distribution; Zipf slope estimates and R² indicate reasonable alignment for narrative/long-form prompts, while short structured prompts (tables, receipts) produce deviations expected from constrained vocabulary.
+- Benford analysis: for each (topic, model) pair we counted leading digits (1–9) and computed the Pearson chi-square statistic against Benford expected proportions. Where available, p-values from the chi-square test are reported.
+- Zipf analysis: for textual outputs we computed word-frequency distributions and fit a power-law (Zipf) model to estimate the slope and R².
+- Visualization: generated heatmaps (chi-square per topic/model) and composite Benford plots per topic to facilitate visual inspection.
 
-## 4. Important files and figures to review
+## 4. Key findings
 
-- `sample_data/combined_outputs.jsonl` — canonical dataset used in analyses.
-- `outputs/topic_comparison.csv` — per-topic/model Benford observed counts (obs_1..obs_9), expected counts, chi-square, p-value.
-- `outputs/summary/chi2_heatmap.png` — visualization of chi-square (rows: topics, cols: models).
-- `outputs/summary/benford_by_topic_combined.png` — combined Benford plots by topic.
+- Overall agreement: many topic/model combinations—particularly those producing longer numeric series or narrative text—show distributions broadly consistent with Benford and Zipf expectations.
+- Notable deviations: a subset of model/topic pairs exhibit significantly elevated chi-square values for Benford analysis. These deviations often correspond to prompts that elicit short, structured outputs (tables, receipts) or to outputs containing repeated formatting patterns. These are listed in `outputs/topic_comparison.csv` and visible in `outputs/summary/chi2_heatmap.png`.
+- Zipf observations: narrative and review-style prompts produce heavy-tailed word-frequency distributions with slopes close to expected ranges, while highly templated prompts (e.g., CSV/table outputs) deviate due to limited vocabulary.
 
-## 5. Talking points for a short meeting (5–10 minutes)
+## 5. Recommended follow-up
 
-- One-sentence goal.
-- What we measured (Benford chi-square, Zipf slope/R²) and why it matters.
-- Top 2–3 notable deviations: which topic/model pairs show significant Benford deviations and potential reasons (prompt style, numeric emphasis, tokenization quirks).
-- Proposed next steps and experiments (see Section 6).
+1. Manual inspection: review raw responses for the highest chi-square topic/model pairs to understand the cause (formatting, enumerations, tokenization artifacts).
+2. Controlled A/B testing: run targeted prompt variants to determine whether deviations are prompt-driven or model-intrinsic.
+3. Preprocessing sensitivity: evaluate how different normalization/tokenization rules affect Benford and Zipf statistics (e.g., removing currency symbols, expanding abbreviations).
+4. Report & publish: freeze the canonical dataset and document preprocessing choices in a Methods appendix for reproducibility.
 
-## 6. Suggested next steps (recommended order)
+## 6. Deliverables and artifacts
 
-1. Validate top deviations by manually inspecting raw responses for the suspect (topic, model) pairs to understand failure modes (e.g., explicit enumerations, repeated tokens, formatting differences).
-2. Run controlled prompt variants (A/B) for suspect prompts to localize whether deviation is prompt-driven or model-driven.
-3. If publishing results, freeze the canonical dataset and append a short Methods appendix describing parsing choices and any normalization rules.
-4. Optionally add a small slide deck with the two summary plots and the table of top deviations for easy sharing.
+- Canonical dataset: `sample_data/combined_outputs.jsonl`
+- Summary CSV: `outputs/topic_comparison.csv` (observed digits obs_1..obs_9, expected counts, chi-square, p-value)
+- Summary plots: `outputs/summary/chi2_heatmap.png`, `outputs/summary/benford_by_topic_combined.png`
+- Scripts: `scripts/consolidate.py`, `scripts/generate_summary_plots.py`, `llm_verification/analyzer_benford.py`, `llm_verification/analyzer_zipf.py`
 
-## 7. Reproducibility & notes for the professor
+## 7. Reproducibility
 
-- The `scripts/` directory contains the consolidation and plotting scripts used to produce the CSVs and PNGs; `llm_verification/` contains analyzers and utilities.
-- Archived legacy outputs are under `archive/` with timestamps in folder names — these are retained for reproducibility and can be restored if needed.
+- All analysis scripts operate on JSONL input and are deterministic given the same preprocessing parameters. Archived intermediate files are stored under `archive/` with timestamps for traceability.
 
 ---
 
 Prepared: September 22, 2025
-
-(If you want, I can convert this to a PDF and create a one-slide summary in PPTX or PDF format.)
