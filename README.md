@@ -1,25 +1,30 @@
-LLM Verification — Project scaffold
+# LLM Verification — Project overview and quick start
 
-Overview
+This repository contains a lightweight, reproducible pipeline for verifying properties of large language model (LLM) outputs across prompts and models. The current focus is on two statistical checks commonly used to validate numeric and textual distributions:
 
-This repository contains a minimal scaffold to run LLM verification experiments focused on:
-- Benford analysis for numeric outputs
-- Zipf (word frequency) analysis for textual outputs
+- Benford's Law — checks the distribution of leading digits in numeric outputs.
+- Zipf's Law — inspects word-frequency distributions in textual outputs.
 
-What's included
+This project supports: collection (via JSONL or API), per-response parsing (extract numbers / text), per-topic consolidation, statistical analysis (chi-square, slope/R²), and visualization.
 
-- `requirements.txt` — Python dependencies
-- `prompts.txt` — example prompts to use when generating outputs
-- `sample_data/sample_outputs.jsonl` — a tiny example of model outputs (JSONL)
-- `llm_verification/collector.py` — helper to collect outputs (from JSONL or OpenAI API if configured)
-- `llm_verification/analyzer_benford.py` — Benford analysis utilities
-- `llm_verification/analyzer_zipf.py` — Zipf analysis utilities
-- `llm_verification/utils.py` — small I/O helpers
-- `tests/test_benford.py`, `tests/test_zipf.py` — minimal unit tests using pytest
+Supported files and structure (important)
+
+- `requirements.txt` — Python dependencies used for analysis and plotting.
+- `prompts/` — canonical prompt sets organized by topic.
+- `sample_data/` — canonical example datasets and per-topic exports; `sample_data/combined_outputs.jsonl` is the canonical combined dataset used by the analysis scripts.
+- `llm_verification/` — core Python package containing:
+  - `collector.py` — collection utilities and API client wrapper (optional OpenAI support).
+  - `analyzer_benford.py` — leading-digit extraction and chi-square Benford utilities.
+  - `analyzer_zipf.py` — Zipf slope and R² utilities.
+  - `visualize.py` — plotting helpers used by `scripts/generate_summary_plots.py`.
+  - `utils.py` — shared helpers (JSONL I/O, number/text extraction).
+- `scripts/` — convenience scripts to consolidate outputs, generate summary plots, and archive legacy files (`consolidate.py`, `generate_summary_plots.py`, `archive_unused.py`).
+- `outputs/` — analysis outputs and summary plots. Keep `outputs/summary/` and `outputs/topic_comparison.csv` as canonical deliverables; other files may be archived.
+- `archive/` — timestamped archives of legacy outputs and auxiliary scripts (kept for reproducibility and rollback).
 
 Quick start (macOS / zsh)
 
-1. Create a virtual environment and install dependencies:
+1) Create and activate a Python virtual environment, then install dependencies:
 
 ```bash
 python3 -m venv .venv
@@ -27,53 +32,57 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-2. Run tests:
+2) Run tests (pytest):
 
 ```bash
 pytest -q
 ```
 
-3. To analyze the provided sample data:
+3) Analyze the canonical combined dataset (example):
 
 ```bash
-python -m llm_verification.analyzer_benford sample_data/sample_outputs.jsonl
-python -m llm_verification.analyzer_zipf sample_data/sample_outputs.jsonl
+python -m llm_verification.analyzer_benford sample_data/combined_outputs.jsonl --out outputs/topic_comparison.csv
+python -m llm_verification.analyzer_zipf sample_data/combined_outputs.jsonl --out outputs/zipf_summary.csv
 ```
 
-Notes
-
-- The `collector` supports reading from a JSONL file (already included) and optionally calling OpenAI if you set `OPENAI_API_KEY` and install `openai`.
-- The scripts are intentionally small and easy to extend (add more prompts, models, or output fields).
-
-Batching and running large collections
-
-- `--batch-size` splits the prompt list into batches of the given size and processes all batches by default. If you want to limit how many batches to process (for stepwise collection), use `--max-batches`.
-- `--max-prompts` lets you stop after processing a fixed number of prompts in total; the runner will trim the final batch to not exceed this limit.
-
-Examples:
-
-Process only one batch of size 2 (useful for stepwise testing):
+4) Generate summary plots (reads `outputs/topic_comparison.csv`):
 
 ```bash
-conda activate MSproject
-python -m llm_verification.runner --prompts prompts_big.txt --out sample_data/sample_outputs.jsonl --models gpt-3.5-turbo,gpt-4o,gpt-5-nano --n-per-prompt 1 --workers 2 --batch-size 2 --max-batches 1
+python scripts/generate_summary_plots.py
 ```
 
-Process up to 100 prompts total, trimming the last batch if needed:
+Collection & runner notes
 
-```bash
-python -m llm_verification.runner --prompts prompts_big.txt --out sample_data/sample_outputs.jsonl --models gpt-3.5-turbo --n-per-prompt 1 --workers 4 --batch-size 10 --max-prompts 100
-```
+- The runner (`llm_verification/runner.py`) supports batching with `--batch-size`, limiting prompts with `--max-prompts`, and running multiple workers. See the runner's `--help` for all flags.
+- For API collection, set `OPENAI_API_KEY` (or the environment variable your provider expects). The collector records each request/response as a JSON object in JSONL so collections are reproducible and diffable.
 
-Model naming and costs
+Recommended development workflow
 
-- The runner will pass the exact model string you provide to the API. Ensure the model identifier matches what your provider expects (examples: `gpt-3.5-turbo`, `gpt-4o`, `gpt-5-nano`). If the model name is incorrect or not available on your account, individual requests will fail and record an error in the output JSONL.
-- Large-scale collection may incur significant token costs. Consider:
-	- Doing a full collection on a lower-cost model (e.g., `gpt-3.5-turbo`) and sampling the collected prompts/responses for higher-cost models.
-	- Running a short small-scale run first to estimate average tokens per request and cost.
+1. Work on prompts in `prompts/` and stage small dry-runs with `--batch-size 2` to confirm response shapes.
+2. Consolidate JSONL outputs with `scripts/consolidate.py` to produce `sample_data/combined_outputs.jsonl` and `outputs/topic_comparison.csv`.
+3. Run `scripts/generate_summary_plots.py` to produce `outputs/summary/` PNGs used in reports.
 
-If you'd like, the repository can be extended to estimate token usage or perform automatic downsampling to reduce costs.
+Deliverables and what to share with collaborators / professors
 
-Next steps
+- Canonical dataset: `sample_data/combined_outputs.jsonl`
+- Summary CSV: `outputs/topic_comparison.csv` (per topic & model Benford counts & chi-square)
+- Summary plots: `outputs/summary/chi2_heatmap.png` and `outputs/summary/benford_by_topic_combined.png`
+- Short report (draft): `report/Professor_Report.md`
 
-- Run the tests and the sample analysis. If you'd like, I can implement plotting utilities, add more comprehensive tests, or create a small notebook with visualizations.
+Archival policy
+
+- Non-core artifacts (many per-run PNGs, intermediate CSVs, old scripts) are archived under `archive/archive_all_<timestamp>_utc/` and can be restored if needed. Keep only canonical datasets and summary plots in `outputs/summary/` to reduce clutter.
+
+Notes on reproducibility and costs
+
+- Collections that call an API will incur usage costs. Use small dry-runs to estimate tokens and prefer sampling strategies for expensive models.
+- All analysis scripts read JSONL and are deterministic; version-control both the prompts and the `sample_data/combined_outputs.jsonl` used for a paper or a report.
+
+Contact / next steps
+
+If you'd like, I can:
+- produce a professor-ready PDF (from the `report/Professor_Report.md`) and a one-slide summary with the two summary plots.
+- add automated CI checks to run the analyzers on a tiny dataset and ensure the code continues to work.
+
+---
+Updated: September 22, 2025
