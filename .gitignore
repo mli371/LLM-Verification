@@ -14,8 +14,6 @@ __pycache__/
 # pytest cache
 .pytest_cache/
 # Project-specific/temporary artifacts we don't want in git
-archive/
-outputs/archive/
 outputs/*.png
 .ruff_cache/
 

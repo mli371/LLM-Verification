@@ -1,0 +1,10 @@
+# Example prompts to elicit numeric outputs and text
+
+1. "Give me 20 financial figures representing quarterly revenues (in thousands) for a fictional company across 20 quarters." 
+2. "List 50 random integers between 1 and 100000." 
+3. "Provide a paragraph describing the demographics of a city, including at least 15 numeric values (ages, percentages, population counts)."
+4. "Write a 300-word article about renewable energy including several numeric facts and percentages."
+5. "Provide 30 sample ages (integers) for residents of a town, including decimals for averages."
+6. "List 40 random integers between 1 and 100000, separated by commas."
+7. "Give 15 statistical facts about a company's performance including revenue, growth percentages and counts."
+8. "Write a product specification paragraph including at least 10 numeric measurements (weights, dimensions, tolerances)."
