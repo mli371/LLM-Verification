@@ -23,4 +23,3 @@ or selectively copy files you need.
 
   - These fields will be populated only when a topic/model pair has enough textual variety (the code requires at least two frequency types to perform a fit). Rows with insufficient text will have empty Zipf fields. Use `visualize.plot_per_model(...)` to generate per-model Zipf PNGs directly from the consolidated JSONL if you need per-model plots regardless of CSV contents.
 
-  If you'd like this behavior changed (for example, always computing Zipf from raw responses or lowering the minimum tokens threshold), open an issue or a PR describing the desired change.
