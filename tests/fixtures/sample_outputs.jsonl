@@ -1,0 +1,2 @@
+{"id": 1, "model": "gpt-test", "response": "The value is $1,234.56 and also (1,000) was reported."}
+{"id": 2, "model": "gpt-test", "response": "No numeric here, just text and -42 is negative."}

@@ -1,0 +1,2 @@
+{"id": 1, "model": "gpt-test", "response": "Total: ($1,234.56) and also $2,000."}
+{"id": 2, "model": "gpt-test", "response": "Mixed: (€1.000,00) format might happen, but we expect ($500)."}

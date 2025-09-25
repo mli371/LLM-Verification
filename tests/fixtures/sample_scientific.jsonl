@@ -1,0 +1,2 @@
+{"id": 1, "model": "gpt-test", "response": "We measured 1.2e3 units and sometimes 2E-1 was seen."}
+{"id": 2, "model": "gpt-test", "response": "Edge case: +3.4e+2 and -5.6E3."}

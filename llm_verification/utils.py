@@ -47,17 +47,48 @@ def split_response_to_numbers_and_text(s: str):
     and cleaned_text is the input with numbers/dates/serials removed for Zipf analysis.
     """
     import re
+    import re
     if not s:
         return [], ''
-    # regex for numbers (integers, decimals, currency, scientific), dates, timestamps
-    num_re = re.compile(r"(?<!\d)(?:\d{1,3}(?:,\d{3})*|\d+)(?:\.\d+)?(?:[eE][+-]?\d+)?")
-    date_re = re.compile(r"\b\d{4}-\d{2}-\d{2}\b")
+    # regex for numbers (with optional leading sign and currency), scientific
+    # capture group 'num' contains the numeric token possibly with sign/currency
+    num_re = re.compile(r"(?<!\w)(?P<num>[-+]?\s*[$€£¥]?\s*(?:\d{1,3}(?:,\d{3})*|\d+)(?:\.\d+)?(?:[eE][+-]?\d+)?)")
     time_re = re.compile(r"\b\d{2}:\d{2}:\d{2}(?:\.\d+)?\b")
     # extract numbers
     numbers = num_re.findall(s)
+    # iterate with spans so we can detect surrounding parentheses for negative values
+    numbers = []
+    for m in num_re.finditer(s):
+        raw = m.group('num')
+        start, end = m.span('num')
+        # normalize: remove spaces and thousands separators
+        norm = raw.replace(' ', '').replace(',', '')
+        # strip common currency symbols from start
+        norm = re.sub(r'^[\$€£¥]+', '', norm)
+        # strip trailing percent
+        norm = norm.rstrip('%')
+        # detect parentheses around the numeric token in the original string
+        has_paren_negative = False
+        if start > 0 and end < len(s) and s[start - 1] == '(' and s[end] == ')':
+            has_paren_negative = True
+        try:
+            val = float(norm)
+            if has_paren_negative:
+                val = -val
+            numbers.append(val)
+        except Exception:
+            # fallback: try to remove non numeric chars and parse
+            try:
+                fallback = re.sub(r'[^0-9eE+\-\.]', '', norm)
+                val = float(fallback)
+                if has_paren_negative:
+                    val = -val
+                numbers.append(val)
+            except Exception:
+                continue
+
     # remove numbers and dates/times from text
     cleaned = num_re.sub(' ', s)
-    cleaned = date_re.sub(' ', cleaned)
     cleaned = time_re.sub(' ', cleaned)
     # remove typical serial patterns like ABC-12345-678
     cleaned = re.sub(r"[A-Z]{2,}-\d[-A-Z0-9]+", ' ', cleaned)

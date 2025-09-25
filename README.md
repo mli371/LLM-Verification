@@ -71,18 +71,11 @@ Deliverables and what to share with collaborators / professors
 
 Archival policy
 
-- Non-core artifacts (many per-run PNGs, intermediate CSVs, old scripts) are archived under `archive/archive_all_<timestamp>_utc/` and can be restored if needed. Keep only canonical datasets and summary plots in `outputs/summary/` to reduce clutter.
+- Non-core artifacts (many per-run PNGs, intermediate CSVs, old scripts) are archived under `archive/` and can be restored if needed. Keep only canonical datasets and summary plots in `outputs/summary/` to reduce clutter.
 
 Notes on reproducibility and costs
 
 - Collections that call an API will incur usage costs. Use small dry-runs to estimate tokens and prefer sampling strategies for expensive models.
 - All analysis scripts read JSONL and are deterministic; version-control both the prompts and the `sample_data/combined_outputs.jsonl` used for a paper or a report.
 
-Contact / next steps
-
-If you'd like, I can:
-- produce a professor-ready PDF (from the `report/Professor_Report.md`) and a one-slide summary with the two summary plots.
-- add automated CI checks to run the analyzers on a tiny dataset and ensure the code continues to work.
-
----
-Updated: September 22, 2025
+Updated: September 25, 2025
