@@ -130,3 +130,57 @@ except Exception as e:
     print('Failed to create benford combined plot:', e)
 
 print('Done')
+
+# Additionally create a Zipf slope heatmap (topics x models) if zipf_slope data is present
+try:
+    import numpy as np
+    import matplotlib.pyplot as plt
+    from matplotlib.colors import Normalize
+
+    # collect zipf slopes into matrix
+    mat_z = np.zeros((len(topics), len(models)), dtype=float)
+    mask_z = np.zeros_like(mat_z, dtype=bool)
+    any_zipf = False
+    for i, t in enumerate(topics):
+        for j, m in enumerate(models):
+            # find the row matching topic/model
+            val = None
+            for r in rows:
+                if r['topic'] == t and r['model'] == m:
+                    try:
+                        val = float(r.get('zipf_slope')) if r.get('zipf_slope') not in (None, '', 'None') else None
+                    except:
+                        val = None
+                    break
+            if val is None:
+                mat_z[i, j] = 0.0
+                mask_z[i, j] = True
+            else:
+                mat_z[i, j] = val
+                any_zipf = True
+
+    if any_zipf:
+        import numpy.ma as ma
+        mat_masked_z = ma.masked_array(mat_z, mask=mask_z)
+        fig, ax = plt.subplots(figsize=(max(6, len(models)*1.2), max(6, len(topics)*0.6)))
+        vmin = float(mat_masked_z.min())
+        vmax = float(mat_masked_z.max())
+        # provide a small padding
+        pad = max(0.1, (vmax - vmin) * 0.05) if vmax > vmin else 0.1
+        im = ax.imshow(mat_masked_z, aspect='auto', cmap='coolwarm', norm=Normalize(vmin=vmin-pad, vmax=vmax+pad))
+        ax.set_yticks(list(range(len(topics))))
+        ax.set_yticklabels(topics)
+        ax.set_xticks(list(range(len(models))))
+        ax.set_xticklabels(models, rotation=45, ha='right')
+        ax.set_title('Zipf slope heatmap by Topic (rows) and Model (cols)')
+        cbar = fig.colorbar(im, ax=ax)
+        cbar.set_label('zipf_slope (log-log fit)')
+        plt.tight_layout()
+        out_z = OUT_DIR / 'zipf_slope_heatmap.png'
+        plt.savefig(out_z, dpi=150)
+        plt.close(fig)
+        print('Wrote', out_z)
+    else:
+        print('No zipf_slope data found in', IN)
+except Exception as e:
+    print('Failed to create zipf slope heatmap:', e)

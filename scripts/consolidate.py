@@ -70,9 +70,11 @@ def detect_topic(prompt_text: str, rules):
 
 def list_jsonl_files(sample_dir: Path):
     files = []
-    for p in sample_dir.glob("*.jsonl"):
+    # search recursively to include files in subdirectories (e.g., by_topic)
+    for p in sample_dir.rglob("*.jsonl"):
         if ".bak" in p.name or p.name == OUTPUT_COMBINED.name:
             continue
+        # skip files inside tests/fixtures if any
         files.append(p)
     return sorted(files)
 
@@ -214,12 +216,15 @@ def main():
     # structure: stats[(topic, model)] -> digits counter & counts
     combo = defaultdict(Counter)
     texts_count = defaultdict(int)
+    texts_by_pair = defaultdict(list)
     for rec in combined_records:
         topic = rec.get("_topic", "other")
         model = rec.get("model", "unknown")
         texts_count[(topic, model)] += 1
         # extract numbers from response
         resp = rec.get("response") or rec.get("output") or ""
+        # store responses for later Zipf analysis
+        texts_by_pair[(topic, model)].append(resp)
         nums = extract_numbers(resp)
         for n in nums:
             d = leading_digit(n)
@@ -229,7 +234,7 @@ def main():
     # prepare CSV
     OUTPUT_CSV.parent.mkdir(parents=True, exist_ok=True)
     with OUTPUT_CSV.open("w", encoding="utf-8") as csvf:
-        hdr = ["topic", "model", "n_texts", "n_numbers", "chi2", "p", "obs_1", "obs_2", "obs_3", "obs_4", "obs_5", "obs_6", "obs_7", "obs_8", "obs_9"]
+        hdr = ["topic", "model", "n_texts", "n_numbers", "chi2", "p", "obs_1", "obs_2", "obs_3", "obs_4", "obs_5", "obs_6", "obs_7", "obs_8", "obs_9", "zipf_slope", "zipf_r2", "zipf_types"]
         csvf.write("\t".join(hdr) + "\n")
         for (topic, model), counter in sorted(combo.items()):
             ben = compute_benford_stats(counter)
@@ -239,6 +244,23 @@ def main():
             p = ben["p"]
             row = [topic, model, str(n_texts), str(n_numbers), str(chi2) if chi2 is not None else "", str(p) if p is not None else ""]
             row += [str(ben["obs"].get(d, 0)) for d in range(1, 10)]
+            # compute zipf stats for this (topic, model) if possible
+            zipf_slope = ""
+            zipf_r2 = ""
+            zipf_types = ""
+            try:
+                from llm_verification.visualize import zipf_stats_for_texts
+                texts = texts_by_pair.get((topic, model), [])
+                stats_z = zipf_stats_for_texts(texts)
+                if stats_z:
+                    zipf_slope = str(stats_z.get('slope'))
+                    zipf_r2 = str(stats_z.get('r2'))
+                    zipf_types = str(stats_z.get('n_types'))
+            except Exception:
+                # if dependencies missing or any error, leave zipf fields empty
+                pass
+
+            row += [zipf_slope, zipf_r2, zipf_types]
             csvf.write("\t".join(row) + "\n")
     print(f"Wrote topic comparison CSV to {OUTPUT_CSV}")
 
