@@ -1,0 +1,1084 @@
+## TOPIC: medical_prompts_100
+# source: medical_prompts_100.txt
+Summarize a patient encounter including age, sex, 3 vital signs, and 3 lab values with units.
+
+# source: medical_prompts_100.txt
+Draft an ED triage note with chief complaint, pain score (0-10), temperature (°C), HR, BP, and SpO2.
+
+# source: medical_prompts_100.txt
+Write a SOAP note for a follow-up visit, including current meds with dosages and frequencies.
+
+# source: medical_prompts_100.txt
+Provide a discharge summary with diagnosis codes (ICD-like), medications with mg dosing, and follow-up in days.
+
+# source: medical_prompts_100.txt
+Create a progress note listing 5 lab results (CBC/chemistry) with normal ranges and one abnormal value.
+
+# source: medical_prompts_100.txt
+Summarize a case of community-acquired pneumonia including CURB-65 score calculation and antibiotic dosing.
+
+# source: medical_prompts_100.txt
+Write pre-op evaluation findings including ASA class, vital signs, and NPO status in hours.
+
+# source: medical_prompts_100.txt
+Document a diabetic patient visit including A1c, fasting glucose, BMI, and foot exam findings.
+
+# source: medical_prompts_100.txt
+Create an ICU daily note including ventilator settings (PEEP/FiO2), urine output, and MAP.
+
+# source: medical_prompts_100.txt
+Draft a nephrology consult note with eGFR, creatinine, BUN, potassium, and fluid balance in mL.
+
+# source: medical_prompts_100.txt
+Write a cardiology note summarizing chest pain evaluation with TIMI score and troponin values.
+
+# source: medical_prompts_100.txt
+Provide an oncology clinic note including tumor stage (TNM), last WBC, ANC, and chemo regimen dosing.
+
+# source: medical_prompts_100.txt
+Summarize a pediatric well visit including weight/height percentiles, vaccination status, and vision screening.
+
+# source: medical_prompts_100.txt
+Write an infectious disease note including fever curve, culture results, CRP/ESR, and antibiotic days.
+
+# source: medical_prompts_100.txt
+Create an obstetrics progress note with GA (weeks+days), fetal HR, BP, and contraction frequency.
+
+# source: medical_prompts_100.txt
+Document a stroke admission with NIHSS score, CT findings, BP targets, and tPA dosing calculation.
+
+# source: medical_prompts_100.txt
+Write a respiratory clinic note including spirometry values (FEV1, FVC), oxygen saturation, and inhaler regimen.
+
+# source: medical_prompts_100.txt
+Provide a rheumatology note including joint counts, DAS28 score, CRP, and biologic dosing schedule.
+
+# source: medical_prompts_100.txt
+Draft a hepatology clinic note with AST/ALT, bilirubin, INR, MELD-Na score, and ascites status.
+
+# source: medical_prompts_100.txt
+Summarize a kidney stone ED visit with pain score, CT size (mm), UA findings, and discharge meds with mg.
+
+# source: medical_prompts_100.txt
+Write a geriatrics note including MoCA score, fall risk assessment, BP, HR, and medication reconciliation.
+
+# source: medical_prompts_100.txt
+Provide a psychiatry progress note with PHQ-9 total, GAD-7 total, sleep hours, and med titration in mg.
+
+# source: medical_prompts_100.txt
+Create an endocrinology note including TSH, free T4, dosing for levothyroxine, and follow-up labs timeline.
+
+# source: medical_prompts_100.txt
+Draft a hematology note with Hgb, Hct, platelets, LDH, haptoglobin, and transfusion plan in units.
+
+# source: medical_prompts_100.txt
+Write a dermatology note including lesion size (cm), ABCDE assessment, and biopsy plan.
+
+# source: medical_prompts_100.txt
+Summarize an orthopedic clinic note with pain scale, ROM degrees, imaging findings, and PT frequency.
+
+# source: medical_prompts_100.txt
+Provide a pulmonology note including ABG (pH/PaCO2/PaO2), ventilator changes, and sedation doses.
+
+# source: medical_prompts_100.txt
+Create a nephrology dialysis note with Kt/V, fluid removed (L), pre/post weights, and access status.
+
+# source: medical_prompts_100.txt
+Draft an ophthalmology note with IOP (mmHg), VA (Snellen), slit-lamp findings, and drop regimen.
+
+# source: medical_prompts_100.txt
+Write a neurology follow-up including seizure frequency, EEG summary, AED dosing, and side effects.
+
+# source: medical_prompts_100.txt
+Provide an allergy/immunology note including IgE level, skin test wheal size (mm), and EpiPen dosing.
+
+# source: medical_prompts_100.txt
+Summarize a GI clinic note with stool frequency, calprotectin, CRP, colonoscopy scores, and biologic dosing.
+
+# source: medical_prompts_100.txt
+Create an urgent care note for UTI including UA results, culture CFU/mL, fever, and antibiotic dosing.
+
+# source: medical_prompts_100.txt
+Draft an anesthesia pre-op assessment with airway Mallampati class, BMI, BP, and planned agents with mg/kg.
+
+# source: medical_prompts_100.txt
+Write a sports medicine note including injury mechanism, swelling grade, strength (0-5), and rehab schedule.
+
+# source: medical_prompts_100.txt
+Provide a pain clinic note including pain NRS, opioid MME/day, adjuvant meds, and taper plan.
+
+# source: medical_prompts_100.txt
+Summarize a COVID-19 clinic visit with vaccination dates, antigen/PCR results, SpO2 trend, and days of symptoms.
+
+# source: medical_prompts_100.txt
+Create a nutrition consult note with kcal/day, protein g/kg, weight trend, and supplement plan.
+
+# source: medical_prompts_100.txt
+Draft a lactation consult note with infant weight change (g), feeds/day, latch score, and follow-up.
+
+# source: medical_prompts_100.txt
+Write a toxicology consult with suspected agent, serum level (mg/L), EKG QTc, and antidote dosing.
+
+# source: medical_prompts_100.txt
+Provide a palliative care note including PPS score, symptom scores (0-10), and opioid rotation with ratios.
+
+# source: medical_prompts_100.txt
+Summarize a burn unit note with TBSA %, fluid resuscitation volumes (mL), and dressing changes per day.
+
+# source: medical_prompts_100.txt
+Create an endocrinology diabetes note with CGM time-in-range %, average glucose, and insulin units/day.
+
+# source: medical_prompts_100.txt
+Draft a transplant clinic note with tacrolimus level (ng/mL), creatinine, WBC, and prophylaxis schedule.
+
+# source: medical_prompts_100.txt
+Write an ENT note with audiogram dB thresholds, tympanogram type, and medication dosing.
+
+# source: medical_prompts_100.txt
+Provide a pharmacology note adjusting vancomycin dosing with trough (mcg/mL), weight (kg), and CrCl.
+
+# source: medical_prompts_100.txt
+Summarize a maternity admission with cervical dilation (cm), station, contraction q minutes, and FHR tracing.
+
+# source: medical_prompts_100.txt
+Create a neurosurgery post-op note with ICP (mmHg), drain output (mL), and dexamethasone taper in mg.
+
+# source: medical_prompts_100.txt
+Draft an HIV clinic note with CD4 count, viral load (copies/mL), ART regimen, and adherence %.
+
+# source: medical_prompts_100.txt
+Write an asthma action plan including peak flow zones (L/min), controller dosing, and rescue limits per day.
+
+# source: medical_prompts_100.txt
+Provide a travel medicine note including vaccine list, malaria prophylaxis dosing, and country risk levels.
+
+# source: medical_prompts_100.txt
+Summarize a sleep clinic note with AHI events/hour, CPAP pressure (cmH2O), and adherence hours/night.
+
+## TOPIC: prompts
+# source: prompts.txt
+# Example prompts to elicit numeric outputs and text
+
+# source: prompts.txt
+1. "Give me 20 financial figures representing quarterly revenues (in thousands) for a fictional company across 20 quarters."
+
+# source: prompts.txt
+2. "List 50 random integers between 1 and 100000."
+
+# source: prompts.txt
+3. "Provide a paragraph describing the demographics of a city, including at least 15 numeric values (ages, percentages, population counts)."
+
+# source: prompts.txt
+4. "Write a 300-word article about renewable energy including several numeric facts and percentages."
+
+# source: prompts.txt
+5. "Provide 30 sample ages (integers) for residents of a town, including decimals for averages."
+
+# source: prompts.txt
+6. "List 40 random integers between 1 and 100000, separated by commas."
+
+# source: prompts.txt
+7. "Give 15 statistical facts about a company's performance including revenue, growth percentages and counts."
+
+# source: prompts.txt
+8. "Write a product specification paragraph including at least 10 numeric measurements (weights, dimensions, tolerances)."
+
+## TOPIC: prompts_benford_AB_A
+# source: prompts_benford_AB_A.txt
+# A - Benford-friendly prompts: explicitly request numbers across many magnitudes
+
+# source: prompts_benford_AB_A.txt
+Generate 50 numeric values drawn across many orders of magnitude; ensure values span from 0.01 up to 1000000. Output as a comma-separated list.
+
+# source: prompts_benford_AB_A.txt
+Produce 40 monetary amounts where each amount is sampled from a log-uniform distribution between 0.1 and 100000 and show two decimal places.
+
+# source: prompts_benford_AB_A.txt
+Create a CSV column named "amount" with 100 entries; each entry should be a number sampled so that leading digits across the column approximate a Benford distribution.
+
+# source: prompts_benford_AB_A.txt
+Produce 60 measurements with values deliberately mixing tiny decimals and large integers (range 1e-2 to 1e6), one per line.
+
+# source: prompts_benford_AB_A.txt
+Generate 30 invoice subtotals where each subtotal is randomly sampled on a logarithmic scale (mix of cents up to tens of thousands); list as lines.
+
+# source: prompts_benford_AB_A.txt
+Output 45 donation amounts that are log-uniformly distributed between 1 and 100000, one per line.
+
+# source: prompts_benford_AB_A.txt
+Create a receipt-like list with 20 prices, each chosen from a wide range of magnitudes so observed first digits follow Benford.
+
+# source: prompts_benford_AB_A.txt
+Produce 35 bank transaction amounts sampled across multiple magnitudes; include negative and positive values.
+
+# source: prompts_benford_AB_A.txt
+Generate a narrative paragraph that contains 30 numeric quantities across widely varying orders of magnitude embedded naturally in sentences.
+
+# source: prompts_benford_AB_A.txt
+Create 50 product prices with intentionally varied magnitudes, from $0.05 to $50000, formatted with two decimals.
+
+## TOPIC: prompts_benford_AB_B
+# source: prompts_benford_AB_B.txt
+# B - Control prompts (use existing benford stage prompts as control)
+
+# source: prompts_benford_AB_B.txt
+Generate 30 monetary amounts (USD) in a comma-separated list; vary scales from cents to tens of thousands, include decimals.
+
+# source: prompts_benford_AB_B.txt
+Produce a CSV with 40 donation amounts in a column labeled "amount", vary sizes from $1 to $100000.
+
+# source: prompts_benford_AB_B.txt
+Create a retail receipt with 12-18 line items, each line contains an item name and a price; vary prices over several orders of magnitude.
+
+# source: prompts_benford_AB_B.txt
+Generate 50 fictional bank transaction amounts (positive and negative) across many scales, one per line.
+
+# source: prompts_benford_AB_B.txt
+Output 60 invoice line amounts with quantities and unit prices; amounts should vary widely across orders of magnitude.
+
+# source: prompts_benford_AB_B.txt
+Produce 30 lottery payout amounts with a wide range from small to large prizes, one per line.
+
+# source: prompts_benford_AB_B.txt
+Generate a CSV table with 100 rows of "donation_amount" values spread across multiple magnitudes.
+
+# source: prompts_benford_AB_B.txt
+Create a list of sensor readings (temperatures, pressures) with 80 numeric values spanning different ranges and units.
+
+# source: prompts_benford_AB_B.txt
+Produce 40 fictional sales totals (daily totals) varying from 10 to 100000 across entries.
+
+# source: prompts_benford_AB_B.txt
+Generate 30 scientific measurement values (some decimals) that cover many magnitudes.
+
+# source: prompts_benford_AB_B.txt
+Create 50 numerical entries that simulate invoice subtotals and taxes, with varied magnitudes.
+
+# source: prompts_benford_AB_B.txt
+Produce a narrative paragraph containing 20 numbers (ages, counts, distances, money) embedded in sentences.
+
+# source: prompts_benford_AB_B.txt
+Generate 35 medal counts and prize amounts for fictional competitions; include a few large prize amounts.
+
+# source: prompts_benford_AB_B.txt
+Output 45 rainfall measurements (mm) with a mix of small decimals and large integers.
+
+# source: prompts_benford_AB_B.txt
+Produce 25 population counts for fictional towns (ranging from tens to millions).
+
+# source: prompts_benford_AB_B.txt
+Create 40 entries of product prices (some cents, some big-ticket items) as a CSV column.
+
+# source: prompts_benford_AB_B.txt
+Generate 20 account balances with different magnitudes, some negative and some very large.
+
+# source: prompts_benford_AB_B.txt
+Produce 30 timestamps durations (in seconds) converted to numeric seconds with values across many scales.
+
+# source: prompts_benford_AB_B.txt
+Generate 50 salary amounts across levels from interns to executives, in various currencies and magnitudes.
+
+# source: prompts_benford_AB_B.txt
+Create 60 entries of random numeric metrics (mixed integers and decimals) spanning multiple orders of magnitude.
+
+## TOPIC: prompts_benford_stage
+# source: prompts_benford_stage.txt
+Generate 30 monetary amounts (USD) in a comma-separated list; vary scales from cents to tens of thousands, include decimals.
+
+# source: prompts_benford_stage.txt
+Produce a CSV with 40 donation amounts in a column labeled "amount", vary sizes from $1 to $100000.
+
+# source: prompts_benford_stage.txt
+Create a retail receipt with 12-18 line items, each line contains an item name and a price; vary prices over several orders of magnitude.
+
+# source: prompts_benford_stage.txt
+Generate 50 fictional bank transaction amounts (positive and negative) across many scales, one per line.
+
+# source: prompts_benford_stage.txt
+Output 60 invoice line amounts with quantities and unit prices; amounts should vary widely across orders of magnitude.
+
+# source: prompts_benford_stage.txt
+Produce 30 lottery payout amounts with a wide range from small to large prizes, one per line.
+
+# source: prompts_benford_stage.txt
+Generate a CSV table with 100 rows of "donation_amount" values spread across multiple magnitudes.
+
+# source: prompts_benford_stage.txt
+Create a list of sensor readings (temperatures, pressures) with 80 numeric values spanning different ranges and units.
+
+# source: prompts_benford_stage.txt
+Produce 40 fictional sales totals (daily totals) varying from 10 to 100000 across entries.
+
+# source: prompts_benford_stage.txt
+Generate 30 scientific measurement values (some decimals) that cover many magnitudes.
+
+# source: prompts_benford_stage.txt
+Create 50 numerical entries that simulate invoice subtotals and taxes, with varied magnitudes.
+
+# source: prompts_benford_stage.txt
+Produce a narrative paragraph containing 20 numbers (ages, counts, distances, money) embedded in sentences.
+
+# source: prompts_benford_stage.txt
+Generate 35 medal counts and prize amounts for fictional competitions; include a few large prize amounts.
+
+# source: prompts_benford_stage.txt
+Output 45 rainfall measurements (mm) with a mix of small decimals and large integers.
+
+# source: prompts_benford_stage.txt
+Produce 25 population counts for fictional towns (ranging from tens to millions).
+
+# source: prompts_benford_stage.txt
+Create 40 entries of product prices (some cents, some big-ticket items) as a CSV column.
+
+# source: prompts_benford_stage.txt
+Generate 20 account balances with different magnitudes, some negative and some very large.
+
+# source: prompts_benford_stage.txt
+Produce 30 timestamps durations (in seconds) converted to numeric seconds with values across many scales.
+
+# source: prompts_benford_stage.txt
+Generate 50 salary amounts across levels from interns to executives, in various currencies and magnitudes.
+
+# source: prompts_benford_stage.txt
+Create 60 entries of random numeric metrics (mixed integers and decimals) spanning multiple orders of magnitude.
+
+## TOPIC: prompts_big
+# source: prompts_big.txt
+# Large prompt set for numeric-heavy outputs (for Benford & Zipf analysis)
+
+# source: prompts_big.txt
+# Lines starting with '#' are comments and will be ignored by the collector.
+
+# source: prompts_big.txt
+# Simple numeric lists
+
+# source: prompts_big.txt
+List 5 random integers between 1 and 9.
+
+# source: prompts_big.txt
+List 10 random integers between 1 and 99.
+
+# source: prompts_big.txt
+List 15 random integers between 1 and 999.
+
+# source: prompts_big.txt
+List 20 random integers between 1 and 9999.
+
+# source: prompts_big.txt
+Provide 12 random prime numbers under 1000.
+
+# source: prompts_big.txt
+Provide 10 random even numbers between 2 and 200.
+
+# source: prompts_big.txt
+Provide 10 random odd numbers between 1 and 199.
+
+# source: prompts_big.txt
+Generate a list of 25 random integers between 1 and 1000, sorted ascending.
+
+# source: prompts_big.txt
+Generate a list of 25 random integers between 1 and 1000, sorted descending.
+
+# source: prompts_big.txt
+List 30 random integers where each is between 100 and 999.
+
+# source: prompts_big.txt
+# Ranges and sequences
+
+# source: prompts_big.txt
+Create an arithmetic sequence of 20 numbers starting at 7 with difference 13.
+
+# source: prompts_big.txt
+Create a geometric sequence of 15 numbers starting at 3 with ratio 2.
+
+# source: prompts_big.txt
+List the first 50 triangular numbers.
+
+# source: prompts_big.txt
+List the first 40 Fibonacci numbers.
+
+# source: prompts_big.txt
+Give 25 consecutive dates (YYYY-MM-DD) starting from 2024-01-01 and a random integer (1-1000) for each date, as CSV rows.
+
+# source: prompts_big.txt
+Produce 30 timestamps (ISO 8601) each paired with a temperature reading between -20.0 and 45.0 (one decimal), CSV style.
+
+# source: prompts_big.txt
+# Statistical datasets
+
+# source: prompts_big.txt
+Generate 100 sample exam scores (integers 0-100) for students, comma-separated.
+
+# source: prompts_big.txt
+Generate 200 simulated daily sales amounts (two decimals) in USD between 0.50 and 499.99, one per line.
+
+# source: prompts_big.txt
+Provide 150 simulated household electricity readings (kWh) with two decimals between 0.10 and 50.00.
+
+# source: prompts_big.txt
+Create 120 population counts for fictional towns (integers between 50 and 120000), one per line.
+
+# source: prompts_big.txt
+# Financial-like data
+
+# source: prompts_big.txt
+Create a mock invoice table with 20 rows: invoice_id (sequential), amount (USD, 2 decimals, 10.00-5000.00), tax (2 decimals), total.
+
+# source: prompts_big.txt
+Produce 30 fictional stock closing prices (two decimals) for a made-up company over 30 days.
+
+# source: prompts_big.txt
+Generate 50 random credit-card-style 4-digit blocks (but do not include real card numbers), example: 1234 5678 9012 3456 format but randomized blocks.
+
+# source: prompts_big.txt
+# Measurements & sensor data
+
+# source: prompts_big.txt
+Provide 100 simulated sensor readings (floating point) between 0.001 and 1000.0 with 3 decimal places.
+
+# source: prompts_big.txt
+Generate 80 lat-long coordinate pairs within valid ranges, one pair per line, comma-separated.
+
+# source: prompts_big.txt
+Produce 60 wind speed readings (m/s) with one decimal between 0.0 and 60.0.
+
+# source: prompts_big.txt
+# Percentages and ratios
+
+# source: prompts_big.txt
+List 40 percentages with one decimal between 0.1% and 99.9%.
+
+# source: prompts_big.txt
+Provide 35 ratios as 'x:y' where x and y are integers between 1 and 1000.
+
+# source: prompts_big.txt
+# Counts and frequencies
+
+# source: prompts_big.txt
+Generate a frequency table (word,count) for 30 fictional words where counts are integers between 1 and 10000.
+
+# source: prompts_big.txt
+Create 50 lines of 'item_id,frequency' where item_id is an integer 1000-9999 and frequency 1-5000.
+
+# source: prompts_big.txt
+# Structured numeric outputs (CSV/TSV)
+
+# source: prompts_big.txt
+Provide a CSV with columns: id,age,height_cm,weight_kg for 100 fictional people (age 0-100, height 50-210, weight 2.0-200.0 with one decimal).
+
+# source: prompts_big.txt
+Create a CSV with columns: product_id,units_sold,unit_price,region for 120 rows. Use realistic ranges.
+
+# source: prompts_big.txt
+# Lists with mixed text and numbers
+
+# source: prompts_big.txt
+Give 30 examples of product reviews with a star rating (1-5) and a numeric word count for each review.
+
+# source: prompts_big.txt
+Provide 40 sample exam results with student ID (6-digit), score (0-100), and percentile (0-100.0).
+
+# source: prompts_big.txt
+# Time series and logs
+
+# source: prompts_big.txt
+Generate 200 lines of 'timestamp,requests' where requests is 0-2000 per minute.
+
+# source: prompts_big.txt
+Produce 120 lines of 'date,visitors,pageviews' with integers where pageviews >= visitors.
+
+# source: prompts_big.txt
+# Mathematical outputs
+
+# source: prompts_big.txt
+Compute and list 30 values of sin(x) for x = 0, pi/30, 2pi/30, ... with 6 decimal places; include both the x (rad) and value.
+
+# source: prompts_big.txt
+Provide 40 outputs: for each n from 1 to 40 output 'n,n^2,n^3' as CSV.
+
+# source: prompts_big.txt
+# Random document-style numeric data
+
+# source: prompts_big.txt
+Write 25 short weather report lines that include temperature, humidity percentage, and precipitation mm.
+
+# source: prompts_big.txt
+Write 30 short basketball box-score lines: player_name,points,rebounds,assists where points 0-60.
+
+# source: prompts_big.txt
+# Domain-specific examples
+
+# source: prompts_big.txt
+Generate 60 fake census rows with household_id, num_residents, median_income, num_children.
+
+# source: prompts_big.txt
+Create 50 mock medical lab results with patient_id, test_name, value, normal_range_min, normal_range_max.
+
+# source: prompts_big.txt
+# Zipf-friendly textual prompts (encourage natural language)
+
+# source: prompts_big.txt
+Write a 200-word fictional news paragraph about a city's economy (no real people), dense natural-language (this helps Zipf analysis).
+
+# source: prompts_big.txt
+Write a 200-word fictional product description for a household appliance using varied vocabulary.
+
+# source: prompts_big.txt
+Provide 10 short stories (100 words each) about travel that use diverse vocabulary and include numeric dates and quantities.
+
+# source: prompts_big.txt
+# Prompts to encourage varied leading digits
+
+# source: prompts_big.txt
+List 100 random numbers drawn uniformly from 1 to 10,000.
+
+# source: prompts_big.txt
+List 100 random numbers drawn logarithmically between 1 and 10^6 (more small leading digits).
+
+# source: prompts_big.txt
+Provide 100 numbers sampled from a power-law distribution between 1 and 1e6 (to mimic Benford-like behavior).
+
+# source: prompts_big.txt
+# Financial and formatted numbers
+
+# source: prompts_big.txt
+Create a quarterly earnings table for 8 quarters: quarter, revenue (USD with commas and cents), expenses, net_income.
+
+# source: prompts_big.txt
+Generate 50 invoice totals with currency and thousands separators (e.g., $12,345.67) and their tax percentages.
+
+# source: prompts_big.txt
+List 100 monetary values in EUR using comma as decimal separator (e.g., 1.234,56 €) to vary numeric formats.
+
+# source: prompts_big.txt
+# Geographic and population
+
+# source: prompts_big.txt
+Provide population counts for 200 fictional cities with values ranging from 100 to 10,000,000, comma-separated.
+
+# source: prompts_big.txt
+Generate 100 city populations biased toward small towns (many values < 5000) to test leading-digit skew.
+
+# source: prompts_big.txt
+# Scientific and measurements
+
+# source: prompts_big.txt
+List 120 measurements in scientific notation with varied exponents between -12 and 9.
+
+# source: prompts_big.txt
+Create 80 pH measurements with one decimal between 0.0 and 14.0.
+
+# source: prompts_big.txt
+# Formatted identifiers and serials
+
+# source: prompts_big.txt
+Generate 100 serial numbers in the format ABC-12345-678 where digits vary and leading digits are non-uniform.
+
+# source: prompts_big.txt
+Provide 100 product codes with embedded numbers like PROD-00123, SKU-98765.
+
+# source: prompts_big.txt
+# Dates, durations and time intervals
+
+# source: prompts_big.txt
+Produce 120 durations in seconds and formatted H:M:S pairs, one per line.
+
+# source: prompts_big.txt
+Generate 90 timestamps with milliseconds and accompanying numeric latency values in ms.
+
+# source: prompts_big.txt
+# Zipf-heavy natural language
+
+# source: prompts_big.txt
+Write a 300-word investigative-style article about market trends (fictional) that uses diverse vocabulary and many numeric references (percentages, years, counts).
+
+# source: prompts_big.txt
+Write 50 short review blurbs (30-50 words) with star ratings and numeric word counts; vary language richness to help Zipf.
+
+# source: prompts_big.txt
+# Control & edge cases
+
+# source: prompts_big.txt
+Create 100 numbers that are all powers of two between 1 and 2^30.
+
+# source: prompts_big.txt
+List 100 numbers that are all multiples of 1000 (e.g., 1000, 2000, ...), to test non-Benford behavior.
+
+# source: prompts_big.txt
+# Mix of languages and formats
+
+# source: prompts_big.txt
+Provide 40 amounts in Japanese Yen (no decimals) with commas: e.g., ¥1,234,567.
+
+# source: prompts_big.txt
+Give 30 numbers written in words and digits mixing: e.g., "one thousand (1,000)", "fifty (50)".
+
+# source: prompts_big.txt
+# High-density numeric prompts
+
+# source: prompts_big.txt
+For 30 items, produce a JSON object with 15 numeric fields each (random floats/ints) — output one JSON per line.
+
+# source: prompts_big.txt
+Generate a CSV of 200 rows with 10 numeric columns (randomly distributed across large ranges).
+
+# source: prompts_big.txt
+# End appended prompts
+
+# source: prompts_big.txt
+# --- Life-like prompts to generate realistic numbers + natural language ---
+
+# source: prompts_big.txt
+Write a retail receipt for a grocery purchase with at least 12 line items: item name, quantity, unit price, line total, tax, subtotal, total, date and time.
+
+# source: prompts_big.txt
+Write 20 mock bank transaction lines (date, description, debit/credit amount, balance) resembling a monthly statement.
+
+# source: prompts_big.txt
+Generate a mock utility bill (electricity) for a household with daily meter readings for 30 days plus charges, taxes, and totals in a table.
+
+# source: prompts_big.txt
+Produce 15 lines of website access logs: timestamp, user_id, page, response_time_ms, bytes_sent.
+
+# source: prompts_big.txt
+Create a CSV of 100 product sales rows with columns: product_id, units_sold, price_usd, region, date_sold.
+
+# source: prompts_big.txt
+Write 50 rows of IoT sensor logs: ISO timestamp, sensor_id, temperature_c, humidity_pct, battery_v.
+
+# source: prompts_big.txt
+Generate a mock restaurant bill with itemized prices, quantities, tip percentage, and grand total (include currency format with commas).
+
+# source: prompts_big.txt
+Produce a simplified population census extract: household_id, address_fragment, num_residents, median_age, median_income.
+
+# source: prompts_big.txt
+Create 30 medical lab test results with patient_id, test_name, value, unit, reference_range_min, reference_range_max.
+
+# source: prompts_big.txt
+Provide a 200-word neighborhood crime report paragraph that includes counts and dates (e.g., "three incidents on 2024-06-05, 2 burglaries...").
+
+# source: prompts_big.txt
+Generate 20 lines of inventory counts: sku, warehouse_id, on_hand, reserved, available.
+
+# source: prompts_big.txt
+Write 40 short product reviews (20-40 words) each with a star rating (1-5) and helpful_count (integer) and include occasional numeric discounts or coupon codes.
+
+# source: prompts_big.txt
+Create 60 lines of mock medical prescriptions with dosage amounts like 'Take 2 tablets (500 mg) twice daily for 7 days' — include numeric doses and durations.
+
+# source: prompts_big.txt
+Produce 80 entries of transportation ridership data: date, route_id, riders, capacity, percent_full.
+
+# source: prompts_big.txt
+Generate a weekly sales summary paragraph for a small shop including totals, percent change vs previous week, number of transactions, and average basket size.
+
+# source: prompts_big.txt
+Create 40 rows representing scientific experiment readings: sample_id, concentration_mg_L, pH, temperature_C, timestamp.
+
+# source: prompts_big.txt
+Produce 50 entries of phone-call CDR-like logs: call_start_iso, duration_seconds, caller_id, callee_id, bytes_transferred.
+
+# source: prompts_big.txt
+Generate a paragraph describing a travel itinerary with dates, distances (km), durations (hours), and approximate costs.
+
+# source: prompts_big.txt
+Create 30 lines of payroll entries: employee_id, gross_pay, tax_withheld, net_pay, pay_date.
+
+# source: prompts_big.txt
+Write 25 weather station daily summaries for a month with date, high_c, low_c, precipitation_mm, wind_speed_m_s.
+
+# source: prompts_big.txt
+# End life-like prompts
+
+# source: prompts_big.txt
+# Prompts that tend NOT to follow Benford (for control)
+
+# source: prompts_big.txt
+List 100 numbers all between 500 and 599.
+
+# source: prompts_big.txt
+List 100 telephone-style numbers that all start with the same leading digit.
+
+# source: prompts_big.txt
+Provide 80 two-digit numbers where the first digit is intentionally uniform 1-9 (control set).
+
+# source: prompts_big.txt
+# Meta and multiple-item prompts
+
+# source: prompts_big.txt
+For each of the following 20 items, provide 10 sample numeric values: "temperature,price,quantity" (so output will be larger lists).
+
+# source: prompts_big.txt
+Generate 50 JSON objects (one per line) each with keys: id (uuid-like numeric id), value (float 0.01-10000.00), count (int 0-1000).
+
+# source: prompts_big.txt
+# Prompt variants to increase numeric density
+
+# source: prompts_big.txt
+Return a paragraph describing a retail receipt with at least 12 numeric fields (prices, quantities, taxes, totals, dates, times).
+
+# source: prompts_big.txt
+Produce a recipe with ingredient quantities for 15 ingredients including weights in grams, volumes in ml, and temperatures in degrees.
+
+# source: prompts_big.txt
+# Edge-case numeric forms
+
+# source: prompts_big.txt
+List 40 numbers in scientific notation between 1e-6 and 1e6.
+
+# source: prompts_big.txt
+Give 40 monetary amounts with currency symbols and commas, e.g., $1,234.56.
+
+# source: prompts_big.txt
+List 50 percentages written with words and numbers ("twenty percent (20%)").
+
+# source: prompts_big.txt
+# Misc
+
+# source: prompts_big.txt
+Generate 100 random integers between -1000 and 1000 (including negatives and zeros).
+
+# source: prompts_big.txt
+Create 60 lines with serial numbers that contain digits and letters (make sure digits are varied).
+
+# source: prompts_big.txt
+# End of prompts
+
+# source: prompts_big.txt
+# You can duplicate these prompts or call the runner with --n-per-prompt higher to multiply samples per prompt.
+
+## TOPIC: prompts_stage1
+# source: prompts_stage1.txt
+Write a 200-word fictional news paragraph about a city's economy (no real people), dense natural-language and include numeric references like percentages and years.
+
+# source: prompts_stage1.txt
+Write a 200-word fictional product description for a household appliance using varied vocabulary and include numerical specs.
+
+# source: prompts_stage1.txt
+Provide 10 short stories (100 words each) about travel that use diverse vocabulary and include numeric dates and quantities.
+
+# source: prompts_stage1.txt
+Produce a 200-word neighborhood crime report paragraph that includes counts and dates (e.g., "three incidents on 2024-06-05, 2 burglaries...").
+
+# source: prompts_stage1.txt
+Generate a weekly sales summary paragraph for a small shop including totals, percent change vs previous week, number of transactions, and average basket size.
+
+# source: prompts_stage1.txt
+Write a 300-word investigative-style article about market trends (fictional) that uses diverse vocabulary and many numeric references (percentages, years, counts).
+
+# source: prompts_stage1.txt
+Produce a simplified population census extract: household_id, address_fragment, num_residents, median_age, median_income.
+
+# source: prompts_stage1.txt
+Generate a paragraph describing a travel itinerary with dates, distances (km), durations (hours), and approximate costs.
+
+# source: prompts_stage1.txt
+Write 25 short weather station daily summaries for a month with date, high_c, low_c, precipitation_mm, wind_speed_m_s.
+
+# source: prompts_stage1.txt
+Produce 30 lines of payroll entries: employee_id, gross_pay, tax_withheld, net_pay, pay_date.
+
+# source: prompts_stage1.txt
+Create a mock invoice table with 20 rows: invoice_id (sequential), amount (USD, 2 decimals, 10.00-5000.00), tax (2 decimals), total.
+
+# source: prompts_stage1.txt
+Generate 50 rows of IoT sensor logs: ISO timestamp, sensor_id, temperature_c, humidity_pct, battery_v.
+
+# source: prompts_stage1.txt
+Write a retail receipt for a grocery purchase with at least 12 line items: item name, quantity, unit price, line total, tax, subtotal, total, date and time.
+
+# source: prompts_stage1.txt
+Produce a mock restaurant bill with itemized prices, quantities, tip percentage, and grand total (include currency format with commas).
+
+# source: prompts_stage1.txt
+Create a CSV of 100 product sales rows with columns: product_id, units_sold, price_usd, region, date_sold.
+
+# source: prompts_stage1.txt
+Generate 20 mock bank transaction lines (date, description, debit/credit amount, balance) resembling a monthly statement.
+
+# source: prompts_stage1.txt
+Generate 50 rows of inventory counts: sku, warehouse_id, on_hand, reserved, available.
+
+# source: prompts_stage1.txt
+Create 30 lines of payroll entries: employee_id, gross_pay, tax_withheld, net_pay, pay_date.
+
+# source: prompts_stage1.txt
+Generate 20 lines of inventory counts: sku, warehouse_id, on_hand, reserved, available.
+
+# source: prompts_stage1.txt
+Produce 50 rows of IoT sensor logs: ISO timestamp, sensor_id, temperature_c, humidity_pct, battery_v.
+
+## TOPIC: prompts_stage2
+# source: prompts_stage2.txt
+Write a 180-220 word fictional neighborhood economy news paragraph that includes at least five numeric statistics (percent changes, years, population counts) with natural language context.
+
+# source: prompts_stage2.txt
+Write a 200-word fictional product review that includes numeric specifications (power in watts, dimensions in cm, price in USD) and at least three numeric comparisons.
+
+# source: prompts_stage2.txt
+Write a 150-200 word travel narrative describing distances, dates, and counts of stops, using varied vocabulary and including at least four numeric values of different scales.
+
+# source: prompts_stage2.txt
+Produce a 200-word investigative-style paragraph about local market trends referencing quarterly revenue numbers, percentage changes, and multi-year comparisons.
+
+# source: prompts_stage2.txt
+Write a 150-200 word community report summarizing monthly visitor counts to a park, including dates and at least 6 numeric entries (daily counts) embedded in narrative.
+
+# source: prompts_stage2.txt
+Provide a 200-word product description that lists technical specs (voltage, capacity, weight, price) and at least three numeric bullet points.
+
+# source: prompts_stage2.txt
+Write a 200-word fictional business itinerary with dates, distances (km), durations (hours), and per-day expense totals (currency).
+
+# source: prompts_stage2.txt
+Produce a 180-220 word health-and-safety update describing incidents over a month with numeric counts and dates (e.g., "On 2025-06-01 there were 3 cases").
+
+# source: prompts_stage2.txt
+Write a 150-200 word market summary paragraph including numbers for transactions, average order size, percentage returns, and 2 historical year comparisons.
+
+# source: prompts_stage2.txt
+Produce a 200-word short story that includes numeric dates, ages, and countable quantities (e.g., "three boxes, 12 people") embedded naturally.
+
+# source: prompts_stage2.txt
+Generate a grocery receipt for a purchase with at least 12 line items; each line should include item name, quantity, unit price, line total; end with subtotal, tax, and grand total formatted as currency (e.g., $1,234.56).
+
+# source: prompts_stage2.txt
+Create an invoice table of 20 rows with columns: invoice_id, client, net_amount, tax_amount, total_amount; mix small (tens) and large (thousands) totals and include cents.
+
+# source: prompts_stage2.txt
+Produce 30 mock restaurant bills showing itemized prices, quantities, tip percentage, and grand total; vary currency formats and include at least 5 bills over $100.
+
+# source: prompts_stage2.txt
+Generate 50 mock receipts (one per line) in CSV: date,time,store,items_count,subtotal,tax,total; vary subtotals from $2.50 to $12,345.67.
+
+# source: prompts_stage2.txt
+Create 40 point-of-sale receipts that include discounts and coupon lines and show both pre-discount and final totals with currency formatting.
+
+# source: prompts_stage2.txt
+Produce 60 mock bank transaction lines (date, description, debit/credit, amount, balance) with realistic running balances and varied magnitudes.
+
+# source: prompts_stage2.txt
+Generate 30 payroll entries with employee_id, gross_pay, tax_withheld, net_pay, and pay_date; mix low and high payroll amounts.
+
+# source: prompts_stage2.txt
+Create 40 invoice totals with currency and thousands separators and tax percentages (e.g., "$12,345.67", tax 8.25%).
+
+# source: prompts_stage2.txt
+Produce 50 utility bills (electricity) showing meter readings for 30 days and final charges with subtotals and totals formatted as currency.
+
+# source: prompts_stage2.txt
+Generate 50 point-of-sale receipts that intentionally include mixed numeric formatting (commas, parentheses for negatives, currency symbols) to test parsing.
+
+## TOPIC: prompts_stage3
+# source: prompts_stage3.txt
+Produce a retail receipt with 12-16 line items where line totals vary from $0.99 to $12,345.67; include subtotal, discount lines, tax, and grand total. Ensure some items are bulk quantities producing large totals.
+
+# source: prompts_stage3.txt
+Create 20 invoice rows where amounts alternate between small (12.50), medium (345.67), and large (12,345.67) values; include tax and total columns.
+
+# source: prompts_stage3.txt
+Generate 30 fictional donation amounts for a charity: many small donations ($5-$200) and occasional large gifts ($5,000-$200,000), CSV one per line: donor_id,amount.
+
+# source: prompts_stage3.txt
+Produce 25 utility bills where daily meter readings are small but monthly totals can be thousands; include line items and final charge in currency with commas.
+
+# source: prompts_stage3.txt
+Create 40 product prices (CSV) mixing cents, dollars, and thousands with currency symbols and some negative values in parentheses (refunds).
+
+# source: prompts_stage3.txt
+Generate 50 bank transactions with amounts ranging from cents to millions in CSV: date,desc,amount,balance; include deposits and withdrawals.
+
+# source: prompts_stage3.txt
+Produce 30 payroll bonuses and salaries alternating small stipend values and large executive bonuses; include currency formatting and percent tax withheld.
+
+# source: prompts_stage3.txt
+Create 50 mock auction sale prices where some lots sell for $10-$100 and a few sell for $100,000-$1,000,000; output CSV.
+
+# source: prompts_stage3.txt
+Produce 40 lottery prize payouts where small prizes are common and jackpots are rare but huge (simulate power-law).
+
+# source: prompts_stage3.txt
+Generate 25 e-commerce order totals with varied discounts, shipping fees and final totals ranging from $1.99 to $99,999.99.
+
+# source: prompts_stage3.txt
+Write a 200-word financial narrative describing a startup's funding rounds with numbers for seed, Series A/B/C valuations (thousands to millions), percentage ownership, and yearly revenue figures.
+
+# source: prompts_stage3.txt
+Produce a 180-220 word demographic paragraph that lists city populations (mix small towns and large metros) and percent growth rates for multiple years.
+
+# source: prompts_stage3.txt
+Write a 200-word investigative paragraph that cites counts of transactions and anomalies across different scales (tens to millions) with dates.
+
+# source: prompts_stage3.txt
+Compose a 200-word market summary that reports quarterly revenue by country with varied magnitudes and percentage changes.
+
+# source: prompts_stage3.txt
+Write a 200-word travelogue that includes distances from 5 km to 12,000 km, durations in hours, and counts of stops and passengers.
+
+# source: prompts_stage3.txt
+Produce a 150-200 word science report with measurement values in different units and exponents (e.g., 3.5e-6, 1200, 2,300,000).
+
+# source: prompts_stage3.txt
+Write a 180-220 word weather extremes summary listing temperatures, rainfall amounts in mm, and station counts (small to large scales).
+
+# source: prompts_stage3.txt
+Produce a 200-word paragraph describing public infrastructure budgets across towns (mix thousands to billions), including percent allocations.
+
+# source: prompts_stage3.txt
+Write a 200-word product spec that lists component costs from $0.10 parts to $25,000 modules and includes counts and quantities.
+
+# source: prompts_stage3.txt
+Produce a 200-word short story that explicitly mentions numbers across scales (one penny, 12 apples, 3,000 villagers, 1,000,000 stars).
+
+## TOPIC: reviews_prompts_100
+# source: reviews_prompts_100.txt
+Write 5 concise product reviews (30-50 words each) with a 1-5 star rating and 1 numeric spec per review.
+
+# source: reviews_prompts_100.txt
+Compose 4 movie micro-reviews (25-45 words) each including a 0-10 score and runtime in minutes.
+
+# source: reviews_prompts_100.txt
+Provide 6 app store reviews with version numbers, device model, and download counts.
+
+# source: reviews_prompts_100.txt
+Write 5 restaurant mini-reviews including bill totals, tip percentages, and wait times in minutes.
+
+# source: reviews_prompts_100.txt
+Create 5 book blurbs with page counts, publication year, and a 1-5 rating.
+
+# source: reviews_prompts_100.txt
+Review 5 headphones with frequency range (Hz-kHz), impedance (Ω), and comfort rating 1-10.
+
+# source: reviews_prompts_100.txt
+Write 5 smartwatch reviews including battery life (hours), IP rating, and step counts/day.
+
+# source: reviews_prompts_100.txt
+Compose 5 camera reviews including sensor size (mm), ISO performance, and video resolution.
+
+# source: reviews_prompts_100.txt
+Provide 5 laptop reviews including CPU model, RAM (GB), SSD size (GB), and a 1-10 score.
+
+# source: reviews_prompts_100.txt
+Write 5 vacuum cleaner reviews including suction (Pa), noise (dB), and cleaning area (m²).
+
+# source: reviews_prompts_100.txt
+Create 5 smartphone reviews including chipset, screen size (inches), and battery capacity (mAh).
+
+# source: reviews_prompts_100.txt
+Review 5 TV models including screen size (inches), refresh rate (Hz), and HDR formats.
+
+# source: reviews_prompts_100.txt
+Write 5 e-bike reviews including motor power (W), range (km), and charge time (hours).
+
+# source: reviews_prompts_100.txt
+Compose 5 blender reviews including wattage (W), jar capacity (L), and speed levels.
+
+# source: reviews_prompts_100.txt
+Provide 5 router reviews including Wi‑Fi standard, throughput (Mbps), and latency (ms).
+
+# source: reviews_prompts_100.txt
+Write 5 air purifier reviews including CADR (m³/h), filter type, and room size (m²).
+
+# source: reviews_prompts_100.txt
+Create 5 keyboard reviews including switch type, key travel (mm), and typing speed (wpm).
+
+# source: reviews_prompts_100.txt
+Review 5 monitor arms including load capacity (kg), reach (cm), and VESA size (mm).
+
+# source: reviews_prompts_100.txt
+Write 5 suitcase reviews including volume (L), weight (kg), and wheel durability rating.
+
+# source: reviews_prompts_100.txt
+Compose 5 coffee maker reviews including brew time (min), capacity (cups), and temperature (°C).
+
+# source: reviews_prompts_100.txt
+Provide 5 running shoe reviews including weight (g), drop (mm), and durability mileage (km).
+
+# source: reviews_prompts_100.txt
+Write 5 gaming mouse reviews including DPI range, weight (g), and polling rate (Hz).
+
+# source: reviews_prompts_100.txt
+Create 5 office chair reviews including max load (kg), seat height range (cm), and warranty (years).
+
+# source: reviews_prompts_100.txt
+Review 5 action cameras including bitrate (Mbps), stabilization level, and waterproof depth (m).
+
+# source: reviews_prompts_100.txt
+Write 5 soundbar reviews including channels, power (W), and supported codecs.
+
+# source: reviews_prompts_100.txt
+Compose 5 smartwatch app reviews including version, bugs count, and update frequency per month.
+
+# source: reviews_prompts_100.txt
+Provide 5 streaming service reviews including monthly price, 4K library size, and simultaneous streams.
+
+# source: reviews_prompts_100.txt
+Write 5 VPN service reviews including speed (Mbps), server count, and no-logs audit status.
+
+# source: reviews_prompts_100.txt
+Create 5 cloud storage reviews including free tier (GB), max file size (GB), and sync speeds.
+
+# source: reviews_prompts_100.txt
+Review 5 electric toothbrushes including brush speed (rpm), battery life (days), and pressure sensor.
+
+# source: reviews_prompts_100.txt
+Write 5 treadmill reviews including max speed (km/h), incline %, and deck size (cm).
+
+# source: reviews_prompts_100.txt
+Compose 5 DSLR lens reviews including focal length (mm), aperture, and image stabilization stops.
+
+# source: reviews_prompts_100.txt
+Provide 5 3D printer reviews including build volume (mm³), nozzle size (mm), and layer height (mm).
+
+# source: reviews_prompts_100.txt
+Write 5 power bank reviews including capacity (mAh), output (W), and ports count.
+
+# source: reviews_prompts_100.txt
+Create 5 bike helmet reviews including weight (g), MIPS status, and ventilation score 1-10.
+
+# source: reviews_prompts_100.txt
+Review 5 desk lamp reviews including lumens, color temperature (K), and CRI value.
+
+# source: reviews_prompts_100.txt
+Write 5 SSD reviews including read/write (MB/s), TBW, and warranty years.
+
+# source: reviews_prompts_100.txt
+Compose 5 NAS reviews including bays, max capacity (TB), and LAN speed (GbE).
+
+# source: reviews_prompts_100.txt
+Provide 5 projector reviews including lumens, contrast ratio, and throw ratio.
+
+# source: reviews_prompts_100.txt
+Write 5 mechanical keyboard kit reviews including layout, PCB type, and polling rate (Hz).
+
+# source: reviews_prompts_100.txt
+Create 5 hiking backpack reviews including volume (L), weight (kg), and load rating (kg).
+
+# source: reviews_prompts_100.txt
+Review 5 massage gun reviews including stall force (kg), amplitude (mm), and speed levels.
+
+# source: reviews_prompts_100.txt
+Write 5 dash cam reviews including resolution (p), bitrate (Mbps), and GPS accuracy (m).
+
+# source: reviews_prompts_100.txt
+Compose 5 robot vacuum reviews including suction (Pa), runtime (min), and map zones.
+
+# source: reviews_prompts_100.txt
+Provide 5 drone reviews including flight time (min), range (km), and camera MP.
+
+# source: reviews_prompts_100.txt
+Write 5 dehumidifier reviews including capacity (pints/day), power (W), and noise (dB).
+
+# source: reviews_prompts_100.txt
+Create 5 monitor reviews including size (inches), resolution, and color gamut %.
+
+# source: reviews_prompts_100.txt
+Review 5 bicycle light reviews including lumens, battery (mAh), and IP rating.
+
+# source: reviews_prompts_100.txt
+Write 5 portable speaker reviews including power (W), frequency response, and battery life (hours).
+
+# source: reviews_prompts_100.txt
+Compose 5 smartwatch fitness app reviews including step accuracy %, HR error %, and sync reliability 1-10.
+

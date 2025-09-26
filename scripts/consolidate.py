@@ -22,7 +22,7 @@ import math
 
 ROOT = Path(__file__).resolve().parents[1]
 SAMPLE_DIR = ROOT / "sample_data"
-PROMPTS_GLOB = ROOT.glob("prompts*.txt")
+PROMPTS_GLOB = (ROOT / "prompts").glob("*.txt")
 PROMPTS_META = ROOT / "prompts_meta.json"
 OUTPUT_COMBINED = SAMPLE_DIR / "combined_outputs.jsonl"
 CONSOLIDATED_PROMPTS = ROOT / "prompts" / "consolidated_prompts_by_topic.txt"
@@ -177,8 +177,22 @@ def main():
                 if key in seen:
                     continue
                 seen.add(key)
-                prompt_text = rec.get("prompt") or rec.get("instruction") or ""
-                topic = detect_topic(prompt_text, rules)
+                # Priority for topic detection:
+                # 1) use existing rec['_topic'] if the record was pre-labeled
+                # 2) else use prompts_meta rules (if any)
+                # 3) else fall back to the JSONL filename stem (useful when files are organized by topic)
+                if rec.get('_topic'):
+                    topic = rec.get('_topic')
+                else:
+                    prompt_text = rec.get("prompt") or rec.get("instruction") or ""
+                    if rules:
+                        topic = detect_topic(prompt_text, rules)
+                    else:
+                        # no rules: default to using the filename stem as topic
+                        try:
+                            topic = jf.stem
+                        except Exception:
+                            topic = detect_topic(prompt_text, rules)
                 rec["_topic"] = topic
                 combined_records.append(rec)
 
@@ -189,18 +203,49 @@ def main():
             outfh.write(json.dumps(rec, ensure_ascii=False) + "\n")
     print(f"Wrote {len(combined_records)} records to {OUTPUT_COMBINED}")
 
-    # consolidate prompts files
+    # consolidate prompts files from the prompts/ directory and archive/
     prompts_by_topic = defaultdict(list)
-    # read prompts files in repo root
-    for p in ROOT.glob("prompts*.txt"):
+    # Collect prompt files from prompts/ (flat) and archive/ (recursive)
+    prompt_paths = []
+    prompt_paths.extend(sorted((ROOT / "prompts").glob("*.txt")))
+    # include .txt files under archive/ recursively (some old prompts live there)
+    prompt_paths.extend(sorted((ROOT / "archive").rglob("*.txt")))
+    # de-duplicate while preserving order
+    seen_prompt_paths = []
+    seen_names = set()
+    for p in prompt_paths:
+        try:
+            rp = p.resolve()
+        except Exception:
+            rp = p
+        if rp in seen_names:
+            continue
+        seen_prompt_paths.append(p)
+        seen_names.add(rp)
+    # read prompts from collected paths
+    for p in seen_prompt_paths:
+        # avoid reading the generated consolidated file (prevents recursive inclusion)
+        try:
+            if p.resolve() == CONSOLIDATED_PROMPTS.resolve():
+                continue
+        except Exception:
+            pass
         try:
             text = p.read_text(encoding="utf-8")
         except Exception:
+            # skip unreadable files
             continue
         lines = [l.strip() for l in text.splitlines() if l.strip()]
         for ln in lines:
-            t = detect_topic(ln, rules)
-            prompts_by_topic[t].append((p.name, ln))
+                # If we have meta rules, use them to detect topic; otherwise use the source filename stem
+                if rules:
+                    t = detect_topic(ln, rules)
+                else:
+                    try:
+                        t = p.stem
+                    except Exception:
+                        t = detect_topic(ln, rules)
+                prompts_by_topic[t].append((p.name, ln))
 
     # ensure prompts dir
     CONSOLIDATED_PROMPTS.parent.mkdir(parents=True, exist_ok=True)

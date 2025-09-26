@@ -163,21 +163,44 @@ try:
         import numpy.ma as ma
         mat_masked_z = ma.masked_array(mat_z, mask=mask_z)
         fig, ax = plt.subplots(figsize=(max(6, len(models)*1.2), max(6, len(topics)*0.6)))
-        vmin = float(mat_masked_z.min())
-        vmax = float(mat_masked_z.max())
-        # provide a small padding
-        pad = max(0.1, (vmax - vmin) * 0.05) if vmax > vmin else 0.1
-        im = ax.imshow(mat_masked_z, aspect='auto', cmap='coolwarm', norm=Normalize(vmin=vmin-pad, vmax=vmax+pad))
+        # compute robust vmin/vmax ignoring masked cells
+        try:
+            import numpy as _np
+            valid = _np.ma.masked_array(mat_z, mask=mask_z)
+            vmin = float(valid.min())
+            vmax = float(valid.max())
+        except Exception:
+            vmin, vmax = 0.0, 1.0
+        # if range is tiny, add padding
+        if vmax <= vmin:
+            pad = 0.1 if abs(vmax) < 1e-6 else abs(vmax) * 0.1 + 0.1
+            vmin -= pad
+            vmax += pad
+        # choose a diverging colormap and set bad (masked) color to light gray
+        from matplotlib.colors import Normalize
+        cmap = plt.get_cmap('RdYlBu')
+        cmap.set_bad(color='#DDDDDD')
+        im = ax.imshow(mat_masked_z, aspect='auto', cmap=cmap, norm=Normalize(vmin=vmin, vmax=vmax))
         ax.set_yticks(list(range(len(topics))))
         ax.set_yticklabels(topics)
         ax.set_xticks(list(range(len(models))))
         ax.set_xticklabels(models, rotation=45, ha='right')
         ax.set_title('Zipf slope heatmap by Topic (rows) and Model (cols)')
+        # annotate cells with numeric values for readability
+        for i in range(len(topics)):
+            for j in range(len(models)):
+                if not mask_z[i, j]:
+                    try:
+                        val = mat_z[i, j]
+                        txt = f"{val:.2f}"
+                        ax.text(j, i, txt, ha='center', va='center', color='black', fontsize=8)
+                    except Exception:
+                        pass
         cbar = fig.colorbar(im, ax=ax)
         cbar.set_label('zipf_slope (log-log fit)')
         plt.tight_layout()
         out_z = OUT_DIR / 'zipf_slope_heatmap.png'
-        plt.savefig(out_z, dpi=150)
+        plt.savefig(out_z, dpi=200)
         plt.close(fig)
         print('Wrote', out_z)
     else:

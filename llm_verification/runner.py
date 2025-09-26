@@ -8,6 +8,7 @@ def main():
     p.add_argument('--prompts', '-p', required=True, help='Path to prompts file (one prompt per line)')
     p.add_argument('--out', '-o', required=True, help='Output JSONL file')
     p.add_argument('--model', '-m', default='gpt-4o', help='Model name to query')
+    p.add_argument('--topic', type=str, default='', help='Optional topic label to annotate each record as _topic')
     p.add_argument('--dry-run', action='store_true', help='Do not call API, just record prompts')
     p.add_argument('--workers', type=int, default=1, help='Number of worker threads for parallel collection')
     p.add_argument('--batch-size', type=int, default=0, help='If >0, split prompts into batches of this size')
@@ -50,6 +51,10 @@ def main():
                         records = collect_openai_parallel(batch, model=model, max_workers=args.workers, dry_run=args.dry_run)
                     else:
                         records = collect_openai(batch, model=model, dry_run=args.dry_run)
+                    # annotate topic if provided
+                    if args.topic:
+                        for r in records:
+                            r["_topic"] = args.topic
                     save_jsonl(args.out, records)
                     total_written += len(records)
                     processed_prompts += len(batch)
@@ -62,6 +67,10 @@ def main():
                     records = collect_openai_parallel(prompts, model=model, max_workers=args.workers, dry_run=args.dry_run)
                 else:
                     records = collect_openai(prompts, model=model, dry_run=args.dry_run)
+                # annotate topic if provided
+                if args.topic:
+                    for r in records:
+                        r["_topic"] = args.topic
                 save_jsonl(args.out, records)
                 total_written += len(records)
                 print(f"Appended {len(records)} records (total {total_written})")
