@@ -8,3 +8,6 @@ regex
 nltk
 python-dotenv
 openai
+streamlit
+plotly
+statsmodels

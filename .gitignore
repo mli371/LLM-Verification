@@ -21,3 +21,6 @@ __pycache__/
 
 # Local environment overrides
 .env.local
+
+# Analysis outputs (csv, plots)
+outputs/

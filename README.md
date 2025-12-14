@@ -26,9 +26,7 @@ Quick start (macOS / zsh)
 
 1) Create and activate a Python virtual environment, then install dependencies:
 
-```bash
-python3 -m venv .venv
-source .venv/bin/activate
+conda activate MSproject
 pip install -r requirements.txt
 ```
 

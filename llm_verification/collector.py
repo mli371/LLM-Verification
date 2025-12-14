@@ -18,13 +18,14 @@ def save_jsonl(path: str, records: Iterable[Dict]):
 
 
 def collect_openai(prompts: List[str], model: str = 'gpt-4o', api_key_env: str = 'OPENAI_API_KEY',
-                   max_retries: int = 3, sleep_between: float = 1.0, dry_run: bool = False) -> List[dict]:
+                   max_retries: int = 3, sleep_between: float = 1.0, dry_run: bool = False,
+                   temperature: float = 1.0) -> List[dict]:
     """Collect responses from OpenAI (or dry-run returning prompts only).
 
     Returns a list of records: {prompt, response, model, timestamp, error?}
     """
     if dry_run:
-        return [{"prompt": p, "response": None, "model": model, "timestamp": time.time()} for p in prompts]
+        return [{"prompt": p, "response": None, "model": model, "temperature": temperature, "timestamp": time.time()} for p in prompts]
 
     try:
         # new OpenAI python client exposes OpenAI class
@@ -55,13 +56,14 @@ def collect_openai(prompts: List[str], model: str = 'gpt-4o', api_key_env: str =
                 resp = client.chat.completions.create(
                     model=model,
                     messages=[{"role": "user", "content": p}],
+                    temperature=temperature,
                 )
                 # response structure remains similar: choices -> message -> content
                 text = resp.choices[0].message.content
                 # treat empty or whitespace-only responses as transient failures to allow retries
                 if not text or not str(text).strip():
                     raise RuntimeError('empty response')
-                rec = {"prompt": p, "response": text, "model": model, "timestamp": time.time()}
+                rec = {"prompt": p, "response": text, "model": model, "temperature": temperature, "timestamp": time.time()}
                 outputs.append(rec)
                 break
             except Exception as e:
@@ -71,6 +73,7 @@ def collect_openai(prompts: List[str], model: str = 'gpt-4o', api_key_env: str =
                         "response": None,
                         "model": model,
                         "timestamp": time.time(),
+                        "temperature": temperature,
                         "error": str(e),
                     })
                     break
@@ -85,12 +88,13 @@ def collect_from_prompts_file(prompts_path: str) -> List[str]:
     return lines
 
 
-def _collect_single(client, prompt: str, model: str) -> dict:
+def _collect_single(client, prompt: str, model: str, temperature: float) -> dict:
     # helper for parallel execution; client is an OpenAI() instance exposing chat.completions.create
     try:
         resp = client.chat.completions.create(
             model=model,
             messages=[{"role": "user", "content": prompt}],
+            temperature=temperature,
         )
         text = resp.choices[0].message.content
         if not text or not str(text).strip():
@@ -98,6 +102,7 @@ def _collect_single(client, prompt: str, model: str) -> dict:
                 "prompt": prompt,
                 "response": None,
                 "model": model,
+                "temperature": temperature,
                 "timestamp": time.time(),
                 "error": "empty response",
             }
@@ -105,17 +110,18 @@ def _collect_single(client, prompt: str, model: str) -> dict:
             "prompt": prompt,
             "response": text,
             "model": model,
+            "temperature": temperature,
             "timestamp": time.time(),
         }
     except Exception as e:
-        return {"prompt": prompt, "response": None, "model": model, "timestamp": time.time(), "error": str(e)}
+        return {"prompt": prompt, "response": None, "model": model, "temperature": temperature, "timestamp": time.time(), "error": str(e)}
 
 
 def collect_openai_parallel(prompts: List[str], model: str = 'gpt-4o', api_key_env: str = 'OPENAI_API_KEY',
-                            max_workers: int = 4, dry_run: bool = False) -> List[dict]:
+                            max_workers: int = 4, dry_run: bool = False, temperature: float = 1.0) -> List[dict]:
     """Collect using a ThreadPoolExecutor. For dry_run, returns records quickly without network calls."""
     if dry_run:
-        return [{"prompt": p, "response": None, "model": model, "timestamp": time.time()} for p in prompts]
+        return [{"prompt": p, "response": None, "model": model, "temperature": temperature, "timestamp": time.time()} for p in prompts]
 
     try:
         from openai import OpenAI
@@ -138,7 +144,7 @@ def collect_openai_parallel(prompts: List[str], model: str = 'gpt-4o', api_key_e
     results: List[dict] = []
     with ThreadPoolExecutor(max_workers=max_workers) as ex:
         futures = {
-            ex.submit(_collect_single, client, p, model): p
+            ex.submit(_collect_single, client, p, model, temperature): p
             for p in prompts
         }
         for fut in as_completed(futures):
