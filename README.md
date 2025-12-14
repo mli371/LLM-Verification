@@ -49,6 +49,23 @@ python -m llm_verification.analyzer_zipf sample_data/combined_outputs.jsonl --ou
 python scripts/generate_summary_plots.py
 ```
 
+5) **[NEW] Run Interactive Dashboard**:
+
+```bash
+streamlit run app.py
+```
+
+- Provides real-time verification of Benford's and Zipf's laws.
+- Supports custom prompts and live analysis.
+
+6) **[NEW] Run Temperature Experiments**:
+
+```bash
+python scripts/run_temperature_experiment.py
+```
+
+- Automates data collection across temperatures (0.1, 0.7, 1.5) to test model robustness.
+
 Collection & runner notes
 
 - The runner (`llm_verification/runner.py`) supports batching with `--batch-size`, limiting prompts with `--max-prompts`, and running multiple workers. See the runner's `--help` for all flags.

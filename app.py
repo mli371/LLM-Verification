@@ -34,19 +34,10 @@ with st.sidebar:
     model = st.selectbox("Model", ["gpt-4o", "gpt-4-turbo", "gpt-3.5-turbo"])
     
     # Temperature is now supported
-    temperature = st.slider("Temperature", 0.0, 2.0, 1.0, help="Values > 1.2 may cause hallucinations or formatting errors.")
+    temperature = st.slider("Temperature", 0.0, 2.0, 1.0)
     
     st.subheader("Prompt Input")
-    
-    prompt_type = st.radio("Prompt Type", ["Numeric (Benford Focus)", "Text (Zipf Focus)", "Custom"], horizontal=True)
-    
-    if prompt_type == "Numeric (Benford Focus)":
-        default_prompt = "Generate a list of 120 fictional invoice amounts for a hardware store, ranging from $5 to $500."
-    elif prompt_type == "Text (Zipf Focus)":
-        default_prompt = "Write a 500-word science fiction story about a robot discovering a flower."
-    else:
-        default_prompt = ""
-
+    default_prompt = "Generate a list of 50 fictional invoice amounts for a hardware store, ranging from $5 to $500."
     prompt = st.text_area("Enter Prompt", value=default_prompt, height=150)
     
     run_btn = st.button("Generate & Verify", type="primary")
@@ -91,12 +82,7 @@ if run_btn:
                                 # Metrics
                                 m1, m2 = st.columns(2)
                                 m1.metric("Chi-Square", f"{chi2:.2f}")
-                                m2.metric("P-value", f"{p:.4f}", delta="Significant Deviation" if p < 0.05 else "Pass", delta_color="inverse")
-                                
-                                if p < 0.05:
-                                    st.error("⚠️ **Significant Deviation Detected**: The generated numbers do not follow Benford's Law naturally.")
-                                else:
-                                    st.success("✅ **Pass**: The distribution conforms to Benford's Law.")
+                                m2.metric("P-value", f"{p:.4f}", help="p < 0.05 indicates significant deviation")
                                 
                                 # Plot
                                 df_b = pd.DataFrame({
@@ -121,14 +107,7 @@ if run_btn:
                             st.markdown("### Zipf's Law Analysis")
                             ranks, freqs, slope = zipf_stats([response_text])
                             
-                            st.metric("Zipf Slope", f"{slope:.2f}", delta="Low Complexity" if slope > -0.8 else "Natural", delta_color="normal")
-                            
-                            if slope > -0.8:
-                                st.info("ℹ️ **Flat Slope**: The text lacks natural language variety (likely a structured list).")
-                            elif slope < -1.2:
-                                st.info("ℹ️ **Steep Slope**: Vocabulary is very repetitive.")
-                            else:
-                                st.success("✅ **Natural**: Matches typical human language patterns.")
+                            st.metric("Zipf Slope", f"{slope:.2f}", help="Expected ~ -1.0 for natural language")
                             
                             if len(ranks) > 1:
                                 df_z = pd.DataFrame({
