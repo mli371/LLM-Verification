@@ -23,7 +23,7 @@ def zipf_stats(texts: List[str]) -> Tuple[List[int], List[int], float]:
     log_r = np.log(ranks)
     log_f = np.log(freqs)
     slope, intercept, r_value, p_value, std_err = stats.linregress(log_r, log_f)
-    return ranks, freqs, slope
+    return ranks, freqs, slope, r_value**2
 
 
 if __name__ == '__main__':
